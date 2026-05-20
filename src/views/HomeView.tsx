@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'motion/react';
-import { ArrowRight, Box, Cpu, Shield, Zap, TrendingUp, Users, Activity, Star, ChevronRight } from 'lucide-react';
+import { ArrowRight, Box, Cpu, Shield, Zap, TrendingUp, Users, Activity, Star, ChevronRight, Send, Instagram } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 import { ViewState, Product } from '../types';
 
@@ -128,6 +128,25 @@ export default function HomeView({ setView }: Props) {
              style={{ transformStyle: "preserve-3d", transform: "translateZ(80px)" }}
              className="relative z-20"
           >
+            <motion.div
+              animate={{ rotateY: [0, 10, -10, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              style={{ transformStyle: "preserve-3d", transform: "translateZ(60px)" }}
+              className="relative inline-block mb-6 md:mb-8"
+            >
+              <div className="absolute -inset-4 bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-cyan rounded-full blur-2xl opacity-60 animate-pulse"></div>
+              {/* Note: Place the user's uploaded image here. Currently assuming /logo.png */}
+              <img 
+                src="/logo.png" 
+                alt="Brand Logo" 
+                className="relative w-32 h-32 md:w-40 md:h-40 rounded-[2rem] object-cover shadow-[0_0_40px_rgba(0,243,255,0.6)] border-2 border-white/20"
+                style={{ transform: "translateZ(40px)" }}
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1614680376593-902f74cf0d41?q=80&w=200&h=200&auto=format&fit=crop";
+                }}
+              />
+            </motion.div>
+
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 shadow-[0_0_30px_rgba(0,243,255,0.2)] border border-neon-cyan/30 mb-8 font-mono text-xs tracking-widest uppercase text-neon-cyan backdrop-blur-xl">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon-cyan opacity-75"></span>
@@ -162,8 +181,32 @@ export default function HomeView({ setView }: Props) {
                 Start Selling <Box className="w-5 h-5 text-gray-400" />
               </button>
             </div>
+
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4" style={{ transform: "translateZ(80px)" }}>
+              <div className="relative group perspective">
+                <button 
+                  onClick={() => window.open('https://t.me/+5s62N7FluXY3NTQ1', '_blank')}
+                  className="w-full sm:w-auto px-8 py-3 bg-[#0088cc]/20 backdrop-blur-md border border-[#0088cc]/50 text-white font-mono text-sm rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform-gpu hover:rotate-x-12 hover:-translate-y-2 hover:bg-[#0088cc]/40 hover:shadow-[0_20px_40px_rgba(0,136,204,0.4)]"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <Send className="w-5 h-5 text-[#0088cc]" style={{ transform: "translateZ(10px)" }} /> 
+                  <span style={{ transform: "translateZ(20px)" }}>Join TG Group</span>
+                </button>
+              </div>
+              
+              <div className="relative group perspective">
+                <button 
+                  onClick={() => window.open('https://ig.me/j/Abb4QCnbdEYG-d3y/', '_blank')}
+                  className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-[#833ab4]/20 via-[#fd1d1d]/20 to-[#fcb045]/20 backdrop-blur-md border border-[#fd1d1d]/50 text-white font-mono text-sm rounded-xl flex items-center justify-center gap-3 transition-all duration-300 transform-gpu hover:rotate-x-12 hover:-translate-y-2 hover:from-[#833ab4]/40 hover:via-[#fd1d1d]/40 hover:to-[#fcb045]/40 hover:shadow-[0_20px_40px_rgba(253,29,29,0.4)]"
+                  style={{ transformStyle: "preserve-3d" }}
+                >
+                  <Instagram className="w-5 h-5 text-[#fcb045]" style={{ transform: "translateZ(10px)" }} /> 
+                  <span style={{ transform: "translateZ(20px)" }}>Join IG Group</span>
+                </button>
+              </div>
+            </div>
             
-            <div className="mt-20 flex flex-col md:flex-row items-center justify-center gap-8 text-sm font-mono text-gray-500 drop-shadow-lg" style={{ transform: "translateZ(20px)" }}>
+            <div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-8 text-sm font-mono text-gray-500 drop-shadow-lg" style={{ transform: "translateZ(20px)" }}>
               <span className="flex items-center gap-2 px-4 py-2 bg-black/40 rounded-lg border border-white/5"><div className="w-1.5 h-1.5 rounded-full bg-neon-cyan shadow-[0_0_10px_rgba(0,243,255,1)]"></div> INR / USDT Support</span>
               <span className="flex items-center gap-2 px-4 py-2 bg-black/40 rounded-lg border border-white/5"><div className="w-1.5 h-1.5 rounded-full bg-neon-purple shadow-[0_0_10px_rgba(176,38,255,1)]"></div> Verified Sellers</span>
               <span className="flex items-center gap-2 px-4 py-2 bg-black/40 rounded-lg border border-white/5"><div className="w-1.5 h-1.5 rounded-full bg-neon-magenta shadow-[0_0_10px_rgba(255,0,234,1)]"></div> 24/7 Automations</span>
