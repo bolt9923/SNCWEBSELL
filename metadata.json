@@ -1,0 +1,6 @@
+{
+  "name": "SNC Market",
+  "description": "Premium futuristic marketplace for digital and physical products.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
