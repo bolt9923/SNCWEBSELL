@@ -1,7 +1,7 @@
 import express from "express";
 import path from "path";
 import mongoose from "mongoose";
-import { createServer as createViteServer } from "vite";
+from "vite";
 import { GoogleGenAI } from "@google/genai";
 
 const PRODUCT_SCHEMA = new mongoose.Schema({
@@ -150,6 +150,8 @@ async function startServer() {
     });
   }
 
+  app.use(express.static('dist'));
+  
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
