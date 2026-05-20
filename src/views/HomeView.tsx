@@ -213,15 +213,15 @@ export default function HomeView({ setView }: Props) {
       <section className="py-24 px-4 bg-black/80 relative z-20 backdrop-blur-3xl shadow-[0_-30px_50px_rgba(0,0,0,0.5)]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 tracking-tight drop-shadow-md">Elite Trading Protocol</h2>
-             <p className="text-gray-400 max-w-2xl mx-auto font-mono text-sm leading-relaxed">Advanced mechanics protecting buyers and sellers simultaneously.</p>
+             <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 tracking-tight drop-shadow-md">100% Safe Escrow Protocol</h2>
+             <p className="text-gray-400 max-w-2xl mx-auto font-mono text-sm leading-relaxed">All transactions go through our official Escrow partner (@takekiss) ensuring both buyers and sellers are fully protected. No scams, no direct risk.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ perspective: 1200 }}>
             {[
-              { icon: Zap, title: "Crypto Integration", desc: "Pay with USDT (TRC20/BEP20) seamlessly. Receive direct deposit addresses dynamically on checkout.", color: "group-hover:text-neon-cyan", shadow: "hover:shadow-[0_20px_50px_rgba(0,243,255,0.15)]" },
-              { icon: Shield, title: "Zero Trust System", desc: "Robust anti-scam reports, transparent verified badges, and real-time review ecosystems.", color: "group-hover:text-neon-purple", shadow: "hover:shadow-[0_20px_50px_rgba(176,38,255,0.15)]" },
-              { icon: Cpu, title: "AI/Bot Support", desc: "Interact directly with support and purchase handling bots straight inside Telegram.", color: "group-hover:text-neon-magenta", shadow: "hover:shadow-[0_20px_50px_rgba(255,0,234,0.15)]" }
+              { icon: Zap, title: "1. Buyer Sends Payment", desc: "Buyers send TON or INR directly to Escrow (@takekiss) and provide proof via DM.", color: "group-hover:text-neon-cyan", shadow: "hover:shadow-[0_20px_50px_rgba(0,243,255,0.15)]" },
+              { icon: Box, title: "2. Escrow Holds & Alerts", desc: "Escrow secures the funds and instructs the seller to transfer the product/service.", color: "group-hover:text-neon-purple", shadow: "hover:shadow-[0_20px_50px_rgba(176,38,255,0.15)]" },
+              { icon: Shield, title: "3. Safe Release", desc: "Once the buyer receives and verifies the product, they say 'RELEASE' and funds are sent to the seller.", color: "group-hover:text-green-400", shadow: "hover:shadow-[0_20px_50px_rgba(74,222,128,0.15)]" }
             ].map((feat, i) => (
                <motion.div 
                  key={i}
@@ -240,7 +240,7 @@ export default function HomeView({ setView }: Props) {
                  <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 shadow-inner" style={{ transform: "translateZ(30px)" }}>
                    <feat.icon className={`w-8 h-8 text-gray-300 transition-colors duration-300 ${feat.color}`} />
                  </div>
-                 <h3 className="text-2xl font-bold font-display mb-4 text-white drop-shadow-md" style={{ transform: "translateZ(40px)" }}>{feat.title}</h3>
+                 <h3 className="text-xl font-bold font-display mb-4 text-white drop-shadow-md" style={{ transform: "translateZ(40px)" }}>{feat.title}</h3>
                  <p className="text-gray-400 leading-relaxed" style={{ transform: "translateZ(20px)" }}>{feat.desc}</p>
                  
                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
