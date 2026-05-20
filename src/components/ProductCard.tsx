@@ -41,8 +41,8 @@ export default function ProductCard({ product }: Props) {
     y.set(0);
   };
 
-  const handleContact = () => {
-    window.open(`https://t.me/${product.sellerUsername}`, '_blank');
+  const handleContactEscrow = () => {
+    window.open(`https://t.me/takekiss`, '_blank');
   };
 
   return (
@@ -96,14 +96,14 @@ export default function ProductCard({ product }: Props) {
                 onClick={() => setShowCheckout(true)}
                 className="w-full py-3 bg-gradient-to-r from-neon-cyan/20 via-neon-cyan/40 to-neon-purple/30 hover:from-neon-cyan/50 hover:to-neon-purple/50 text-white border border-neon-cyan/40 hover:border-neon-cyan/80 rounded-xl font-bold font-display transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(0,243,255,0.2)] hover:shadow-[0_0_30px_rgba(0,243,255,0.6)] backdrop-blur-md">
                 <ShoppingCart className="w-5 h-5 flex-shrink-0" />
-                <span>Buy Now</span>
+                <span>Buy via Escrow</span>
               </button>
               <button 
-                onClick={handleContact}
-                className="w-full py-2.5 bg-black/50 hover:bg-white/10 text-gray-300 hover:text-white rounded-xl font-mono text-sm transition-colors flex items-center justify-center gap-2 border border-white/10 hover:border-white/20 backdrop-blur-sm"
+                onClick={handleContactEscrow}
+                className="w-full py-2.5 bg-black/50 hover:bg-white/10 text-gray-300 hover:text-white rounded-xl font-mono text-sm transition-colors flex items-center justify-center gap-2 border border-white/10 hover:border-white/20 backdrop-blur-sm shadow-[0_0_10px_rgba(0,0,0,0.5)]"
               >
                 <Send className="w-4 h-4 flex-shrink-0 text-neon-magenta/80" />
-                DM @{product.sellerUsername}
+                DM Escrow @takekiss
               </button>
             </div>
           </div>
@@ -127,19 +127,19 @@ export default function ProductCard({ product }: Props) {
                 <X className="w-6 h-6" />
               </button>
 
-              <h2 className="text-3xl font-display font-bold text-white mb-2">Checkout</h2>
-              <p className="text-gray-400 font-mono text-sm mb-6">Complete your payment below for <span className="text-neon-cyan">{product.name}</span></p>
+              <h2 className="text-3xl font-display font-bold text-white mb-2">Secure Escrow Checkout</h2>
+              <p className="text-gray-400 font-mono text-sm mb-6">Complete your payment below for <span className="text-neon-cyan">{product.name}</span>. Funds are held safely.</p>
 
               <div className="space-y-4 mb-8">
                 {/* Crypto Payment */}
                 <div className="p-4 bg-white/5 border border-white/10 rounded-xl relative group">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="flex items-center gap-2 text-sm font-mono text-gray-300"><Bitcoin className="w-4 h-4 text-neon-cyan" /> Pay USDT (TRC20)</span>
-                    <span className="text-neon-cyan font-bold font-mono">${product.priceUSDT.toFixed(2)}</span>
+                    <span className="flex items-center gap-2 text-sm font-mono text-gray-300"><Bitcoin className="w-4 h-4 text-neon-cyan" /> Pay TON</span>
+                    <span className="text-neon-cyan font-bold font-mono">${product.priceUSDT.toFixed(2)} eqv.</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <input type="text" readOnly value="TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-gray-400 focus:outline-none" />
-                    <button onClick={() => handleCopy("TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors">
+                    <input type="text" readOnly value="UQAe_k7Y-o_cxE1Q_IVPgzYOgzZ9qYodVMBGVuCqyuniWRX1" className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-gray-400 focus:outline-none" />
+                    <button onClick={() => handleCopy("UQAe_k7Y-o_cxE1Q_IVPgzYOgzZ9qYodVMBGVuCqyuniWRX1")} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors">
                       {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                     </button>
                   </div>
@@ -148,12 +148,12 @@ export default function ProductCard({ product }: Props) {
                 {/* INR Payment */}
                 <div className="p-4 bg-white/5 border border-white/10 rounded-xl relative group">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="flex items-center gap-2 text-sm font-mono text-gray-300"><IndianRupee className="w-4 h-4 text-neon-purple" /> Pay UPI / INR</span>
+                    <span className="flex items-center gap-2 text-sm font-mono text-gray-300"><IndianRupee className="w-4 h-4 text-neon-purple" /> Pay UPI (Escrow)</span>
                     <span className="text-neon-purple font-bold font-mono">₹{product.priceINR.toLocaleString()}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <input type="text" readOnly value={`${product.sellerUsername}@upi`} className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-gray-400 focus:outline-none" />
-                    <button onClick={() => handleCopy(`${product.sellerUsername}@upi`)} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors">
+                    <input type="text" readOnly value="takekiss@upi" className="w-full bg-black/50 border border-white/10 rounded-lg px-3 py-2 text-xs font-mono text-gray-400 focus:outline-none" />
+                    <button onClick={() => handleCopy("takekiss@upi")} className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors">
                       {copied ? <Check className="w-4 h-4 text-green-400" /> : <Copy className="w-4 h-4" />}
                     </button>
                   </div>
@@ -161,28 +161,24 @@ export default function ProductCard({ product }: Props) {
               </div>
 
               <div className="bg-neon-cyan/10 border border-neon-cyan/30 rounded-xl p-4 mb-6">
-                <p className="text-sm text-gray-300">
-                  <span className="text-neon-cyan font-bold">Important:</span> After completing your payment, click the button below to message the seller on Telegram with your payment screenshot.
-                  {product.link && " The seller will provide instant access."}
+                <p className="text-xs text-gray-300 leading-relaxed font-mono">
+                  <span className="text-neon-cyan font-bold block mb-1">ESCROW RULES:</span>
+                  1. Send payment to ESCROW only.<br/>
+                  2. DM @takekiss with payment proof/ID.<br/>
+                  3. Seller provides product to Escrow (or directly to you).<br/>
+                  4. Once product is verified, tell @takekiss to "RELEASE".<br/>
+                  <span className="text-neon-magenta font-bold mt-2 block">100% Safe & Trusted Deal</span>
                 </p>
               </div>
 
               <div className="flex flex-col gap-3">
                 <button 
-                  onClick={handleContact}
+                  onClick={handleContactEscrow}
                   className="w-full py-4 bg-neon-cyan text-black font-bold text-lg rounded-xl shadow-[0_0_15px_rgba(0,243,255,0.4)] hover:shadow-[0_0_25px_rgba(0,243,255,0.6)] hover:bg-white transition-all flex items-center justify-center gap-2"
                 >
                   <Send className="w-5 h-5 flex-shrink-0" />
-                  I've Paid! Message Seller
+                  I've Paid! DM @takekiss
                 </button>
-                {product.link && (
-                   <button 
-                     onClick={() => window.open(product.link, '_blank')}
-                     className="w-full py-3 bg-black hover:bg-white/10 text-white rounded-xl font-mono text-sm border border-white/20 transition-all flex items-center justify-center gap-2"
-                   >
-                     Open Public Product Link
-                   </button>
-                )}
               </div>
             </motion.div>
           </div>
